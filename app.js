@@ -7,32 +7,40 @@ let numberOfIncorrect = 0;
 let firstNumber;
 let secondNumber;
 function startGame() {
-    level = parseInt(document.getElementById('level').value);
+    const levelElement = document.getElementById('level');
+    level = parseInt(levelElement.value);
     document.getElementById('game').style.display = 'block';
     generateQuestion();
 }
 function generateQuestion() {
-    firstNumber = getRandomNumber(level);
-    secondNumber = getRandomNumber(level);
-    document.getElementById('question').textContent = `${firstNumber} x ${secondNumber} = `;
-    document.getElementById('answer').value = '';
-    document.getElementById('feedback').textContent = '';
+    firstNumber = getRandomInteger(level);
+    secondNumber = getRandomInteger(level);
+    const questionElement = document.getElementById('question');
+    const answerElement = document.getElementById('answer');
+    const feedbackElement = document.getElementById('feedback');
+    questionElement.textContent = `${firstNumber} x ${secondNumber} = `;
+    answerElement.value = '';
+    feedbackElement.textContent = '';
 }
 function submitAnswer() {
-    const answer = parseInt(document.getElementById('answer').value);
+    const answerElement = document.getElementById('answer');
+    const answer = parseInt(answerElement.value);
+    const feedbackElement = document.getElementById('feedback');
+    const correctElement = document.getElementById('correct');
+    const incorrectElement = document.getElementById('incorrect');
     if (answer === firstNumber * secondNumber) {
         numberOfCorrect++;
-        document.getElementById('feedback').textContent = 'Correct!';
+        feedbackElement.textContent = 'Correct!';
     }
     else {
         numberOfIncorrect++;
-        document.getElementById('feedback').textContent = `Wrong! Correct answer is: ${firstNumber * secondNumber}`;
+        feedbackElement.textContent = `Wrong! Correct answer is: ${firstNumber * secondNumber}`;
     }
-    document.getElementById('correct').textContent = numberOfCorrect.toString();
-    document.getElementById('incorrect').textContent = numberOfIncorrect.toString();
+    correctElement.textContent = numberOfCorrect.toString();
+    incorrectElement.textContent = numberOfIncorrect.toString();
     generateQuestion();
 }
-function getRandomNumber(level) {
+function getRandomInteger(level) {
     switch (level) {
         case 2:
             return Math.floor(Math.random() * 10) + 1;
