@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table Math</title>
+    <script defer src="app.js"></script>
+</head>
+<body>
+<h1>Welcome to Time Table Math</h1>
+<label for="level">Which level:</label>
+<select id="level">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<button id="start">Start</button>
+<div id="game" style="display:none;">
+    <p id="question"></p>
+    <input type="number" id="answer" />
+    <button id="submit">Submit</button>
+    <p id="feedback"></p>
+    <p>Total: incorrect: <span id="incorrect">0</span> correct: <span id="correct">0</span></p>
+</div>
+</body>
+</html>
