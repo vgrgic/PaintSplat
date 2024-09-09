@@ -1,5 +1,10 @@
 document.getElementById('start')!.addEventListener('click', startGame);
 document.getElementById('submit')!.addEventListener('click', submitAnswer);
+document.getElementById('answer')!.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        submitAnswer();
+    }
+});
 
 let level: number;
 let numberOfCorrect = 0;
@@ -23,7 +28,7 @@ function generateQuestion(): void {
 
     questionElement.textContent = `${firstNumber} x ${secondNumber} = `;
     answerElement.value = '';
-    feedbackElement.textContent = '';
+    feedbackElement.textContent = 'please answer';
 }
 
 function submitAnswer(): void {

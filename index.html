@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Table Math</title>
     <script defer src="app.js"></script>
+    <style>
+        body {
+            background-color: rgba(103, 96,234, 0.938);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
 </head>
 <body>
 <h1>Welcome to Time Table Math</h1>
@@ -21,17 +27,8 @@
     <p id="question"></p>
     <input type="number" id="answer" />
     <button id="submit">Submit</button>
-    <p id="feedback"></p>
+    <p><span id="feedback"></span></p>
     <p>Total: incorrect: <span id="incorrect">0</span> correct: <span id="correct">0</span></p>
 </div>
-
-<script>
-    document.getElementById('answer').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            document.getElementById('submit').click();
-        }
-    });
-</script>
-
 </body>
 </html>

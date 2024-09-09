@@ -1,6 +1,11 @@
 "use strict";
 document.getElementById('start').addEventListener('click', startGame);
 document.getElementById('submit').addEventListener('click', submitAnswer);
+document.getElementById('answer').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        submitAnswer();
+    }
+});
 let level;
 let numberOfCorrect = 0;
 let numberOfIncorrect = 0;
@@ -20,7 +25,7 @@ function generateQuestion() {
     const feedbackElement = document.getElementById('feedback');
     questionElement.textContent = `${firstNumber} x ${secondNumber} = `;
     answerElement.value = '';
-    feedbackElement.textContent = '';
+    feedbackElement.textContent = 'please answer';
 }
 function submitAnswer() {
     const answerElement = document.getElementById('answer');
